@@ -125,33 +125,13 @@ public class Main {
                     bookingId.setText("Please fill the details");
                 }
                 else {
-                    String url = "jdbc:mysql://localhost:3306/hotelsecj";
-                    String username = "root";
-                    String password = "";
-                    try {
-                        Connection connection = DriverManager.getConnection(url, username, password);
-                        String sql = " insert into booking"
-                                + " values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                        PreparedStatement preparedStmt = connection.prepareStatement(sql);
-                        preparedStmt.setString (1, nametf.getText().toString());
-                        preparedStmt.setString (2, emailtf.getText().toString());
-                        preparedStmt.setString   (3, mobiletf.getText().toString());
-                        preparedStmt.setString(4, addresstf.getText().toString());
-                        preparedStmt.setString    (5, checkintf.getText().toString());
-                        preparedStmt.setString    (6, checkintf.getText().toString());
-                        preparedStmt.setString    (7, checkintf.getText().toString());
-                        preparedStmt.setString    (8, checkintf.getText().toString());
-                        preparedStmt.setString    (9, checkintf.getText().toString());
-                        preparedStmt.execute();
-                        System.out.println("Db connected");
-                    } catch (SQLException ex) {
-                        throw new RuntimeException(ex+ "not Connected");
-                    }
+
 
                     Random random = new Random();
                     int id = random.nextInt(999999);
                     bookingId.setText("Your booking is confirmed and bookind id " + id);
                 }
+
 
 
             }
